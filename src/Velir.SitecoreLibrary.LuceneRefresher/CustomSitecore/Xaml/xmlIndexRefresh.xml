@@ -11,6 +11,10 @@
         <span>Index: </span>
         <Combobox ID="indexComboBox"/>
 
+        <br />
+        
+        <Checkbox Header="Rebuild Remotes" Checked="true" ID="triggerRemotesCheckbox" />
+        
       </Border>
 
     </FormDialog>

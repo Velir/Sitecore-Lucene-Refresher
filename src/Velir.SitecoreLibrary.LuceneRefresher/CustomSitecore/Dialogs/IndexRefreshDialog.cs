@@ -8,14 +8,15 @@ using Sitecore.Shell.Framework;
 using Sitecore.Web.UI.HtmlControls;
 using Sitecore.Web.UI.Pages;
 using Sitecore.Web.UI.Sheer;
-using Velir.SitecoreLibrary.LuceneRefresher.Interfaces;
-using Velir.SitecoreLibrary.LuceneRefresher.Util;
+using Velir.SitecoreLibrary.LuceneRefresher.Jobs;
+using Velir.SitecoreLibrary.LuceneRefresher.RemoteEvents;
 
 namespace Velir.SitecoreLibrary.LuceneRefresher.CustomSitecore.Dialogs
 {
     public class IndexRefreshDialog : DialogForm
     {
         private Combobox indexComboBox;
+        private Checkbox triggerRemotesCheckbox;
 
         protected override void OnLoad(EventArgs e)
         {
@@ -45,14 +46,19 @@ namespace Velir.SitecoreLibrary.LuceneRefresher.CustomSitecore.Dialogs
                 return;
             }
 
-            IRefresher refresher = RefresherUtil.GetRefresher(indexName);
+            var refresher = new RefreshJob(indexName);
 
-            JobOptions options = new JobOptions("RefreshSearchIndex", "index", Client.Site.Name, refresher, "Refresh")
+            var options = new JobOptions("RefreshSearchIndex", "index", Client.Site.Name, refresher, "Refresh")
             {
                 AfterLife = TimeSpan.FromMinutes(1.0)
             };
 
             JobManager.Start(options);
+
+            if (triggerRemotesCheckbox.Checked)
+            {
+                RefreshHandler.TriggerRemote(indexName);
+            }
 
             SheerResponse.Alert("Refresh started!");
 

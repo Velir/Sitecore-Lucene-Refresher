@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,12 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomSitecore\Dialogs\IndexRefreshDialog.cs" />
+    <Compile Include="Jobs\RefreshJob.cs" />
+    <Compile Include="RemoteEvents\LuceneRefreshRemoteEvent.cs" />
+    <Compile Include="RemoteEvents\RefreshHandler.cs" />
     <Compile Include="Refreshers\TreeRefresher.cs" />
     <Compile Include="Pruners\DictionaryPruner.cs" />
     <Compile Include="Interfaces\IRefresher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\IPruner.cs" />
     <Compile Include="Pruners\SitecorePruner.cs" />
+    <Compile Include="RemoteEvents\LuceneRefreshHook.cs" />
     <Compile Include="Util\ReflectionUtil.cs" />
     <Compile Include="Util\RefresherUtil.cs" />
   </ItemGroup>
@@ -62,6 +67,9 @@
     <Content Include="CustomSitecore\Xaml\xmlIndexRefresh.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CustomSitecore\App_Config\Include\LuceneRefresher.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
