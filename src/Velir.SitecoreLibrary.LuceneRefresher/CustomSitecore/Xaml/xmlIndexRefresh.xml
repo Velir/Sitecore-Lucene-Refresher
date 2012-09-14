@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense" xmlns:shell="http://www.sitecore.net/shell">
+
+  <xmlIndexRefresher>
+    <CodeBeside Type="Velir.SitecoreLibrary.LuceneRefresher.CustomSitecore.Dialogs.IndexRefreshDialog, Velir.SitecoreLibrary.LuceneRefresher"/>
+    <FormDialog Header="Lucene Index Refresher" Icon="Business/32x32/table_selection_block.png" Text="Select an index you would like to refresh">
+
+      <Border align="Center">
+
+        <span>Index: </span>
+        <Combobox ID="indexComboBox"/>
+
+      </Border>
+
+    </FormDialog>
+  </xmlIndexRefresher>
+
+</control>

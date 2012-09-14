@@ -1,2 +1,0 @@
-Sitecore-Lucene-Refresher
-=========================
