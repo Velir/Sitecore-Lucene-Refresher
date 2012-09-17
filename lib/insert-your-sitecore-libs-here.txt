@@ -1,0 +1,2 @@
+Lucene.Net.dll
+Sitecore.Kernel.dll
