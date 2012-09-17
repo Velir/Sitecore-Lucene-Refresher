@@ -46,19 +46,8 @@ namespace Velir.SitecoreLibrary.LuceneRefresher.CustomSitecore.Dialogs
                 return;
             }
 
-            var refresher = new RefreshJob(indexName);
-
-            var options = new JobOptions("RefreshSearchIndex", "index", Client.Site.Name, refresher, "Refresh")
-            {
-                AfterLife = TimeSpan.FromMinutes(1.0)
-            };
-
-            JobManager.Start(options);
-
-            if (triggerRemotesCheckbox.Checked)
-            {
-                RefreshHandler.TriggerRemote(indexName);
-            }
+            bool rebuildGlobally = triggerRemotesCheckbox.Checked;
+            RefreshHandler.Trigger(indexName, rebuildGlobally);
 
             SheerResponse.Alert("Refresh started!");
 

@@ -25,10 +25,10 @@ namespace Velir.SitecoreLibrary.LuceneRefresher.RemoteEvents
             TriggerLocal(eventToProcess.IndexName);
         }
 
-        public static void TriggerRemote(string indexName)
+        public static void Trigger(string indexName, bool globally)
         {
             var inst = new LuceneRefreshRemoteEvent(indexName);
-            EventManager.QueueEvent(inst);
+            EventManager.QueueEvent(inst, globally, true);
         }
 
         public static void TriggerLocal(string indexName)

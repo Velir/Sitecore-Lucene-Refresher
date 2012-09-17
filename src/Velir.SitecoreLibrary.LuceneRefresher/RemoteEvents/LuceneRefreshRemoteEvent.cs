@@ -12,5 +12,10 @@ namespace Velir.SitecoreLibrary.LuceneRefresher.RemoteEvents
         {
             IndexName = indexName;
         }
+
+        public LuceneRefreshRemoteEvent()
+        {
+            
+        }
     }
 }
