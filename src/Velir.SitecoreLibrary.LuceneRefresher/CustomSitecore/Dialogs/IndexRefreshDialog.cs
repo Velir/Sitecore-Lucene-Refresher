@@ -2,13 +2,11 @@
 using System.Linq;
 using Sitecore;
 using Sitecore.Configuration;
-using Sitecore.Jobs;
 using Sitecore.Search;
 using Sitecore.Shell.Framework;
 using Sitecore.Web.UI.HtmlControls;
 using Sitecore.Web.UI.Pages;
 using Sitecore.Web.UI.Sheer;
-using Velir.SitecoreLibrary.LuceneRefresher.Jobs;
 using Velir.SitecoreLibrary.LuceneRefresher.RemoteEvents;
 
 namespace Velir.SitecoreLibrary.LuceneRefresher.CustomSitecore.Dialogs
